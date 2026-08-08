@@ -39,7 +39,7 @@ export function ProblemSection() {
               transition={{ delay: i * 0.1 }}
               className="absolute left-1/2 top-1/2 glass-effect px-6 py-3 rounded-full text-sm md:text-base whitespace-nowrap"
               style={{
-                transform: \	ranslate(-50%, -50%) rotate(\deg)\,
+                transform: `translate(-50%, -50%) rotate(${(i * 47) % 30 - 15}deg)`,
               }}
             >
               {q}

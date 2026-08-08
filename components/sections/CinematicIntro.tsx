@@ -60,7 +60,7 @@ export function CinematicIntro({ onComplete, onSkip }: CinematicIntroProps) {
 
           {step >= 1 && step < 4 && (
             <motion.p
-              key={	ext-\}
+              key={`text-${step}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
