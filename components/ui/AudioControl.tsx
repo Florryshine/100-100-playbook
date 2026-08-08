@@ -1,13 +1,36 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+
 interface AudioControlProps {
   enabled: boolean;
   onToggle: () => void;
 }
 
+// PLACEHOLDER: swap for a real ambient/background track at public/audio/ambient.mp3
+const AUDIO_SRC = '/audio/ambient.mp3';
+
 export function AudioControl({ enabled, onToggle }: AudioControlProps) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (enabled) {
+      // Placeholder track may not exist yet — fail silently instead of throwing.
+      audio.play().catch(() => {
+        console.warn('[AudioControl] No audio file found at', AUDIO_SRC);
+      });
+    } else {
+      audio.pause();
+    }
+  }, [enabled]);
+
   return (
-    <button
+    <>
+      <audio ref={audioRef} src={AUDIO_SRC} loop preload="none" />
+      <button
       onClick={onToggle}
       className="fixed top-4 right-4 z-50 p-3 glass-effect rounded-full hover:bg-white/20 transition-all"
       aria-label={enabled ? "Turn off sound" : "Turn on sound"}
@@ -24,5 +47,6 @@ export function AudioControl({ enabled, onToggle }: AudioControlProps) {
       )}
       <span className="sr-only">{enabled ? "Sound On" : "Sound Off"}</span>
     </button>
+    </>
   );
 }
