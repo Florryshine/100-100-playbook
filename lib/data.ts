@@ -1,4 +1,4 @@
-﻿export const SITE_CONFIG = {
+export const SITE_CONFIG = {
   title: "100/100 AI Playbook — Learn, Build & Earn With AI",
   description: "The practical AI playbook system for students. Learn how to use AI for studying, research, projects, coding, content creation, freelancing and more.",
   url: "https://100-100-playbook.com",

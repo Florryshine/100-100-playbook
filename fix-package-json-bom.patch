@@ -1,0 +1,10 @@
+diff --git a/package.json b/package.json
+index a40c24a..a23a1a3 100644
+--- a/package.json
++++ b/package.json
+@@ -1,4 +1,4 @@
+-﻿{
++{
+   "private": true,
+   "name": "100-100-playbook",
+   "version": "1.0.0",
